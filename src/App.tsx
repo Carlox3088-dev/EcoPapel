@@ -63,90 +63,93 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-teal-50">
-      <header className="bg-white shadow-sm border-b border-green-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center py-6">
-            <div className="flex items-center gap-3">
-              <div className="bg-green-600 p-3 rounded-xl">
-                <Leaf className="w-8 h-8 text-white" />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900">EcoPapel</h1>
-                <p className="text-green-600 font-medium">Proyecto de Economía Circular</p>
-              </div>
-            </div>
-            
-            <nav className="flex gap-1 bg-gray-100 p-1 rounded-lg">
-              <button
-                onClick={() => setActiveTab('overview')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                  activeTab === 'overview' 
-                    ? 'bg-white text-green-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                <Users className="w-4 h-4" />
-                Resumen
-              </button>
-              <button
-                onClick={() => setActiveTab('uacs')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                  activeTab === 'uacs' 
-                    ? 'bg-white text-green-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                <BookOpen className="w-4 h-4" />
-                UACS
-              </button>
-              <button
-                onClick={() => setActiveTab('algorithm')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                  activeTab === 'algorithm' 
-                    ? 'bg-white text-green-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                <FlaskConical className="w-4 h-4" />
-                Algoritmo
-              </button>
-              <button
-                onClick={() => setActiveTab('gallery')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                  activeTab === 'gallery' 
-                    ? 'bg-white text-green-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                <ImageIcon className="w-4 h-4" />
-                Galería
-              </button>
-              <button
-                onClick={() => setActiveTab('teachers')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                  activeTab === 'teachers' 
-                    ? 'bg-white text-green-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                <GraduationCap className="w-4 h-4" />
-                Docentes
-              </button>
-              <button
-                onClick={() => setActiveTab('students')}
-                className={`flex items-center gap-2 px-4 py-2 rounded-md transition-colors ${
-                  activeTab === 'students' 
-                    ? 'bg-white text-green-600 shadow-sm' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                <Users className="w-4 h-4" />
-                Estudiantes
-              </button>
-            </nav>
-          </div>
+      // Reemplaza el header en App.tsx con esta versión responsiva
+<header className="bg-white shadow-sm border-b border-green-100">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-4 lg:py-6 gap-4">
+      {/* Logo y título */}
+      <div className="flex items-center gap-3">
+        <div className="bg-green-600 p-2 lg:p-3 rounded-xl">
+          <Leaf className="w-6 h-6 lg:w-8 lg:h-8 text-white" />
         </div>
-      </header>
+        <div>
+          <h1 className="text-2xl lg:text-3xl font-bold text-gray-900">EcoPapel</h1>
+          <p className="text-green-600 font-medium text-sm lg:text-base">Proyecto de Economía Circular</p>
+        </div>
+      </div>
+      
+      {/* Navegación */}
+      <nav className="flex flex-wrap gap-1 bg-gray-100 p-1 rounded-lg overflow-x-auto">
+        <button
+          onClick={() => setActiveTab('overview')}
+          className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 rounded-md transition-colors text-sm lg:text-base whitespace-nowrap ${
+            activeTab === 'overview' 
+              ? 'bg-white text-green-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <Users className="w-4 h-4" />
+          <span className="hidden sm:inline">Resumen</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('uacs')}
+          className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 rounded-md transition-colors text-sm lg:text-base whitespace-nowrap ${
+            activeTab === 'uacs' 
+              ? 'bg-white text-green-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <BookOpen className="w-4 h-4" />
+          <span className="hidden sm:inline">UACS</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('algorithm')}
+          className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 rounded-md transition-colors text-sm lg:text-base whitespace-nowrap ${
+            activeTab === 'algorithm' 
+              ? 'bg-white text-green-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <FlaskConical className="w-4 h-4" />
+          <span className="hidden sm:inline">Algoritmo</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('gallery')}
+          className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 rounded-md transition-colors text-sm lg:text-base whitespace-nowrap ${
+            activeTab === 'gallery' 
+              ? 'bg-white text-green-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <ImageIcon className="w-4 h-4" />
+          <span className="hidden sm:inline">Galería</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('teachers')}
+          className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 rounded-md transition-colors text-sm lg:text-base whitespace-nowrap ${
+            activeTab === 'teachers' 
+              ? 'bg-white text-green-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <GraduationCap className="w-4 h-4" />
+          <span className="hidden sm:inline">Docentes</span>
+        </button>
+        <button
+          onClick={() => setActiveTab('students')}
+          className={`flex items-center gap-1 lg:gap-2 px-2 lg:px-4 py-2 rounded-md transition-colors text-sm lg:text-base whitespace-nowrap ${
+            activeTab === 'students' 
+              ? 'bg-white text-green-600 shadow-sm' 
+              : 'text-gray-600 hover:text-gray-900'
+          }`}
+        >
+          <Users className="w-4 h-4" />
+          <span className="hidden sm:inline">Estudiantes</span>
+        </button>
+      </nav>
+    </div>
+  </div>
+</header>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {activeTab === 'overview' && (
