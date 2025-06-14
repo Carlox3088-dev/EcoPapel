@@ -63,7 +63,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-blue-50 to-teal-50">
-      // Reemplaza el header en App.tsx con esta versión responsiva
 <header className="bg-white shadow-sm border-b border-green-100">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="flex flex-col lg:flex-row lg:justify-between lg:items-center py-4 lg:py-6 gap-4">
