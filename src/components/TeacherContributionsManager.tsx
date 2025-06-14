@@ -344,9 +344,10 @@ const TeacherContributionManager = () => {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-6 bg-gradient-to-br from-green-50 to-blue-50 min-h-screen">
+    <div className="max-w-7xl mx-auto p-4 sm:p-6 bg-gradient-to-br from-green-50 to-blue-50 min-h-screen">
       <div className="mb-8">
-        <div className="flex justify-between items-start mb-4">
+        {/* CAMBIO: Se aplicó flex-col en móvil y flex-row a partir de sm. Se añadió gap para el espaciado en móvil. */}
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-4 gap-4 sm:gap-0">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2 flex items-center gap-3">
               <GraduationCap className="w-8 h-8 text-green-600" />
@@ -354,7 +355,7 @@ const TeacherContributionManager = () => {
             </h1>
             <p className="text-gray-600 text-lg">Contribuciones de cada docente al Proyecto EcoPapel.</p>
           </div>
-          <button onClick={() => setIsAdding(true)} className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2">
+          <button onClick={() => setIsAdding(true)} className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors flex items-center gap-2 self-start sm:self-auto">
             <Plus className="w-4 h-4" /> Agregar Contribución
           </button>
         </div>
@@ -441,14 +442,15 @@ const TeacherContributionManager = () => {
       <div className="space-y-4">
         {filteredContributions.map((contribution) => (
             <div key={contribution.id} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
-                <div className="p-6 cursor-pointer hover:bg-gray-50" onClick={() => setExpandedTeacher(expandedTeacher === contribution.id ? null : contribution.id)}>
-                    <div className="flex items-center justify-between">
+                <div className="p-4 sm:p-6 cursor-pointer hover:bg-gray-50" onClick={() => setExpandedTeacher(expandedTeacher === contribution.id ? null : contribution.id)}>
+                    {/* CAMBIO: Contenedor principal de la cabecera. Apila en móvil (flex-col) y pone en fila desde 'sm' en adelante. */}
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 sm:gap-2">
                         <div className="flex items-center gap-4 flex-1 min-w-0">
                             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0"><GraduationCap className="w-6 h-6 text-green-600" /></div>
                             <div className="flex-grow min-w-0">
                                 <div className="flex items-center flex-wrap gap-x-3 gap-y-1 mb-2">
-                                    <h3 className="text-xl font-semibold text-gray-900 truncate">{contribution.teacher_name}</h3>
-                                    <span className={`px-3 py-1 rounded-full text-sm font-medium border ${getStageColor(contribution.stage_number)}`}>Etapa {contribution.stage_number}</span>
+                                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 truncate">{contribution.teacher_name}</h3>
+                                    <span className={`px-3 py-1 rounded-full text-xs sm:text-sm font-medium border ${getStageColor(contribution.stage_number)}`}>Etapa {contribution.stage_number}</span>
                                 </div>
                                 <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-gray-600">
                                     <div className="flex items-center gap-1"><BookOpen className="w-4 h-4" /><strong>{contribution.uac}</strong></div>
@@ -457,15 +459,16 @@ const TeacherContributionManager = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0">
-                            <button onClick={(e) => { e.stopPropagation(); handleEdit(contribution); }} className="p-1 text-blue-600 hover:bg-blue-50 rounded"><Edit2 className="w-4 h-4" /></button>
-                            <button onClick={(e) => { e.stopPropagation(); handleDelete(contribution.id); }} className="p-1 text-red-600 hover:bg-red-50 rounded"><X className="w-4 h-4" /></button>
+                        {/* CAMBIO: Contenedor de botones. Se alinea a la derecha en móvil (self-end) y se centra verticalmente en pantallas más grandes. */}
+                        <div className="flex items-center self-end sm:self-center gap-1 sm:gap-2 flex-shrink-0">
+                            <button onClick={(e) => { e.stopPropagation(); handleEdit(contribution); }} className="p-2 text-blue-600 hover:bg-blue-50 rounded"><Edit2 className="w-5 h-5" /></button>
+                            <button onClick={(e) => { e.stopPropagation(); handleDelete(contribution.id); }} className="p-2 text-red-600 hover:bg-red-50 rounded"><X className="w-5 h-5" /></button>
                             <div className="ml-2">{expandedTeacher === contribution.id ? <ChevronDown className="w-5 h-5 text-gray-400" /> : <ChevronRight className="w-5 h-5 text-gray-400" />}</div>
                         </div>
                     </div>
                 </div>
                 {expandedTeacher === contribution.id && (
-                    <div className="border-t border-gray-200 p-6 bg-gray-50">
+                    <div className="border-t border-gray-200 p-4 sm:p-6 bg-gray-50">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                             <div className="space-y-4">
                                 {contribution.progression && <div><h4 className="text-sm font-semibold text-gray-900 mb-2 flex items-center gap-2"><Award className="w-4 h-4 text-green-600"/>Progresión de Aprendizaje</h4><p className="text-sm text-gray-700 bg-white p-3 rounded-md border">{contribution.progression}</p></div>}
