@@ -42,10 +42,7 @@ function App() {
         <div className="text-center bg-white p-8 rounded-lg shadow-lg max-w-md">
           <Database className="w-16 h-16 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-bold text-gray-800 mb-2">Error de Conexión</h2>
-          <p className="text-gray-600 mb-4">{error}</p>
-          <p className="text-sm text-gray-500">
-            Asegúrate de conectar tu proyecto a Supabase haciendo clic en "Connect to Supabase" en la esquina superior derecha.
-          </p>
+          <p className="text-gray-600 mb-4">{error}</p> 
         </div>
       </div>
     );
