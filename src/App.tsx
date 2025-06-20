@@ -105,7 +105,7 @@ function App() {
               {/* Subtitle */}
               <div className="bg-white/70 backdrop-blur-sm rounded-full px-6 py-3 inline-block shadow-lg">
                 <p className="text-lg sm:text-xl font-semibold text-gray-700">
-                  Proyecto de Economía Circular
+                  Transforma y Reutiliza
                 </p>
                 <p className="text-sm sm:text-base text-gray-600 mt-1">
                   CBT San Pedro Tlaltizapán
